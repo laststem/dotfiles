@@ -58,3 +58,6 @@ set shiftwidth=2
 
 
 " let g:indent_guides_enable_on_vim_startup = 1
+
+" Start NERDTree and leave the cursor in it.
+autocmd VimEnter * NERDTree | wincmd p
