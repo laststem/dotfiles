@@ -1,3 +1,6 @@
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -8,7 +11,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="passion"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -64,17 +67,10 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  bundler
-  dotenv
-  osx
-  rake
-  rbenv
-  ruby
-  docker
-  docker-compose
   kubectl
   zsh-autosuggestions
-  kubetail
+	terraform
+	z
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -108,32 +104,13 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
-export LDFLAGS="-L/usr/local/opt/mysql@5.7/lib"
-export CPPFLAGS="-I/usr/local/opt/mysql@5.7/include"
-export GOROOT=/usr/local/go
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
+# alias
+alias ls="exa -abgHliS"
+alias cat="bat --paging=never -p --theme='Monokai Extended Origin'"
+alias nv="nvim"
+alias vim="nvim"
+alias glg="git log --oneline --graph --all --pretty='%C(yellow)%h %C(cyan)%cd %C(brightred)%aN%C(auto)%d %Creset%s' --date=format:'%Y-%m-%d'"
 
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/local/bin/vault vault
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-source <(kubectl completion zsh)
-source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
-PS1='$(kube_ps1)'$PS1
-
-alias tf="terraform"
-
-alias gfmt="gofmt -s -w $1"
-alias glg="glog --all"
-
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-export GOENV_ROOT="$HOME/.goenv"
-export PATH="$GOENV_ROOT/bin:$PATH"
-eval "$(goenv init -)"
-export PATH="$GOROOT/bin:$PATH"
-export PATH="$PATH:$GOPATH/bin"
+# env
+export EDITOR=nvim
+export VISUAL=nvim
