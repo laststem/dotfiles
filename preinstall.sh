@@ -68,6 +68,3 @@ brew install fzf
 
 # wget
 brew install wget
-
-# zsh theme
-wget https://github.com/ChesterYue/ohmyzsh-theme-passion -O $ZSH_CUSTOM/themes/passion.zsh-theme
