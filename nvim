@@ -1,0 +1,50 @@
+call plug#begin()
+
+Plug 'sainnhe/sonokai'
+Plug 'vim-airline/vim-airline'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/syntastic'
+Plug 'hashivim/vim-terraform'
+Plug 'ekalinin/Dockerfile.vim'
+
+call plug#end()
+
+" sonokai
+if has('termguicolors')
+  set termguicolors
+endif
+
+let g:sonokai_style = 'andromeda'
+let g:sonokai_better_performance = 1
+colorscheme sonokai
+
+" airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+
+" nerdree
+autocmd VimEnter * NERDTree | wincmd p
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_python_checkers = ['pylint']
+
+" terraform
+let g:terraform_fmt_on_save = 1
+
+" display
+set nu
+set tabstop=2
+set shiftwidth=2
+set autoindent
+set smartindent
+set list listchars=tab:»\ ,trail:·,extends:>,precedes:<,nbsp:+
