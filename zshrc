@@ -68,6 +68,7 @@ ZSH_THEME="passion"
 plugins=(
   git
   kubectl
+  kube-ps1
   zsh-autosuggestions
 	terraform
 	z
@@ -114,3 +115,4 @@ alias glg="git log --oneline --graph --all --pretty='%C(yellow)%h %C(cyan)%cd %C
 # env
 export EDITOR=nvim
 export VISUAL=nvim
+
