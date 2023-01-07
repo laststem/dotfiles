@@ -39,7 +39,8 @@ brew install jq
 brew install bat
 
 # neovim
-rm $HOME/.config/nvim/init.vim
+mkdir -p $HOME/.config/nvim
+rm -f $HOME/.config/nvim/init.vim
 brew install neovim
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
