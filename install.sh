@@ -28,6 +28,7 @@ brew install exa
 
 # asdf
 brew install asdf
+# echo -e "\n. $(brew --prefix asdf)/libexec/asdf.sh" >> ${ZDOTDIR:-~}/.zshrc
 asdf plugin add golang https://github.com/kennyp/asdf-golang.git || true
 asdf plugin add java https://github.com/halcyon/asdf-java.git || true
 asdf plugin add rust https://github.com/asdf-community/asdf-rust.git || true
@@ -76,3 +77,7 @@ brew install fzf
 
 # wget
 brew install wget
+
+# git
+mkdir -p $HOME/.config/git
+ln -s $HOME/dotfiles/gitignore $HOME/.config/git/ignore

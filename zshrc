@@ -111,8 +111,10 @@ alias cat="bat --paging=never -p --theme='Monokai Extended Origin'"
 alias nv="nvim"
 alias vim="nvim"
 alias glg="git log --oneline --graph --all --pretty='%C(yellow)%h %C(cyan)%cd %C(brightred)%aN%C(auto)%d %Creset%s' --date=format:'%Y-%m-%d'"
+alias ws="cd $HOME/workspace"
 
 # env
 export EDITOR=nvim
 export VISUAL=nvim
 
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
