@@ -47,4 +47,5 @@ set tabstop=2
 set shiftwidth=2
 set autoindent
 set smartindent
+set clipboard=unnamed
 set list listchars=tab:»\ ,trail:·,extends:>,precedes:<,nbsp:+
