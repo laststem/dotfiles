@@ -6,6 +6,8 @@ Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
 Plug 'hashivim/vim-terraform'
 Plug 'ekalinin/Dockerfile.vim'
+Plug 'f-person/git-blame.nvim'
+Plug 'lukas-reineke/indent-blankline.nvim'
 
 call plug#end()
 
@@ -26,6 +28,7 @@ let g:airline_powerline_fonts = 1
 autocmd VimEnter * NERDTree | wincmd p
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+let NERDTreeShowHidden=1
 
 " syntastic
 set statusline+=%#warningmsg#
@@ -49,3 +52,19 @@ set autoindent
 set smartindent
 set clipboard=unnamed
 set list listchars=tab:»\ ,trail:·,extends:>,precedes:<,nbsp:+
+
+" git-blame
+let g:gitblame_message_template = '<sha> • <date> • <author> • <summary>'
+let g:gitblame_date_format = '%Y-%m-%d'
+
+" indent-blankline
+lua << EOF
+vim.opt.list = true
+vim.opt.listchars:append "eol:↴"
+vim.opt.listchars:append "space:⋅"
+require("indent_blankline").setup {
+    show_current_context = true,
+    show_current_context_start = true,
+		show_end_of_line = true,
+}
+EOF
