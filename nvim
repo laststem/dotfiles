@@ -8,6 +8,11 @@ Plug 'hashivim/vim-terraform'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'f-person/git-blame.nvim'
 Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
 
 call plug#end()
 
@@ -25,7 +30,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
 " nerdree
-autocmd VimEnter * NERDTree | wincmd p
+" autocmd VimEnter * NERDTree | wincmd p
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 let NERDTreeShowHidden=1
@@ -50,6 +55,7 @@ set tabstop=2
 set shiftwidth=2
 set autoindent
 set smartindent
+set smarttab
 set clipboard=unnamed
 set list listchars=tab:»\ ,trail:·,extends:>,precedes:<,nbsp:+
 
@@ -57,14 +63,3 @@ set list listchars=tab:»\ ,trail:·,extends:>,precedes:<,nbsp:+
 let g:gitblame_message_template = '<sha> • <date> • <author> • <summary>'
 let g:gitblame_date_format = '%Y-%m-%d'
 
-" indent-blankline
-lua << EOF
-vim.opt.list = true
-vim.opt.listchars:append "eol:↴"
-vim.opt.listchars:append "space:⋅"
-require("indent_blankline").setup {
-    show_current_context = true,
-    show_current_context_start = true,
-		show_end_of_line = true,
-}
-EOF
